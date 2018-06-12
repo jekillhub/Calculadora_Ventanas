@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Calculadora Precio Ventanas</string>
+    <string name="l15">L-15</string>
+    <string name="l20">L-20</string>
+    <string name="l25">L-25</string>
+    <string name="ancho">Ingrese ancho</string>
+    <string name="alto">Ingrese alto</string>
+    <string name="textoPrecio">Precio:</string>
+    <string name="calcular">CALCULAR</string>
+    <string name="version">BETA by Jorge Echeverría R.</string>
+</resources>
