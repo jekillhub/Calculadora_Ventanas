@@ -23,6 +23,9 @@ public class MainActivity extends AppCompatActivity  {
     Button calcularJ;
     Calculo calc;
 
+    int contador;
+    TextView pruebaJ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,47 +43,70 @@ public class MainActivity extends AppCompatActivity  {
 
         calc = new Calculo();
 
+        contador = 0;
+        pruebaJ = (TextView) findViewById(R.id.prueba);
+        pruebaJ.setVisibility(View.GONE);
+
     }
 
     public void onClick(View view){
 
         resultadoJ.setText("");
 
-        if(altoJ.getText().toString().isEmpty() || anchoJ.getText().toString().isEmpty()){
+        if (contador<6) {
 
-            Toast error = Toast.makeText(getApplicationContext(),"Uno o mas campos vacíos", Toast.LENGTH_SHORT);
-            error.show();
+            if (altoJ.getText().toString().isEmpty() || anchoJ.getText().toString().isEmpty()) {
 
+                Toast error = Toast.makeText(getApplicationContext(), "Uno o mas campos vacíos", Toast.LENGTH_SHORT);
+                error.show();
+
+            } else {
+
+                double alto = Double.parseDouble(altoJ.getText().toString());
+                double ancho = Double.parseDouble(anchoJ.getText().toString());
+
+                if (l15J.isChecked()) {
+
+                    calc.l15Comprobacion100(alto, ancho);
+                    resultadoJ.setText(calc.getPrecio());
+
+                }
+
+                if (l20J.isChecked()) {
+
+                    calc.l20Comprobacion100(alto, ancho);
+                    resultadoJ.setText(calc.getPrecio());
+
+                }
+
+                if (l25J.isChecked()) {
+
+                    calc.l25Comprobacion100(alto, ancho);
+                    resultadoJ.setText(calc.getPrecio());
+
+                }
+
+            }
+
+            contador = contador + 1;
         }
 
-        else {
+        else{
 
-            double alto = Double.parseDouble(altoJ.getText().toString());
-            double ancho = Double.parseDouble(anchoJ.getText().toString());
+            altoJ.setVisibility(View.GONE);
+            anchoJ.setVisibility(View.GONE);
+            l15J.setVisibility(View.GONE);
+            l20J.setVisibility(View.GONE);
+            l25J.setVisibility(View.GONE);
+            botonesJ.setVisibility(View.GONE);
+            resultadoJ.setVisibility(View.GONE);
+            textoPrecioJ.setVisibility(View.GONE);
+            calcularJ.setVisibility(View.GONE);
 
-            if (l15J.isChecked()) {
-
-                calc.l15Comprobacion100(alto, ancho);
-                resultadoJ.setText(calc.getPrecio());
-
-            }
-
-            if (l20J.isChecked()) {
-
-                calc.l20Comprobacion100(alto, ancho);
-                resultadoJ.setText(calc.getPrecio());
-
-            }
-
-            if (l25J.isChecked()) {
-
-                calc.l25Comprobacion100(alto, ancho);
-                resultadoJ.setText(calc.getPrecio());
-
-            }
+            pruebaJ.setText("Licencia expirada");
+            pruebaJ.setVisibility(View.VISIBLE);
 
         }
-
     }
 
 }
