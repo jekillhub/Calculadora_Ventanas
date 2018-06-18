@@ -5,42 +5,48 @@ public class Calculo {
     public String precio;
 
 
-
-    public Calculo(){
+    public Calculo() {
 
         this.precio = "";
 
     }
 
-    public int redondeo(double num){
+    //Manejo Numerico
 
-        return (int)Math.round(num);
+    public int redondeo(double num) {
+
+        //HACER METODO DE NUEVO.
+        return (int) Math.round(num);
+
+    }
+
+    public double dividirDato(double num) {
+
+        return num / (Math.pow(10, 2));
 
     }
 
     //L-15
 
-    public double calculoL15menor100(double alto, double ancho) {
+    public void calculoL15menor100(double alto, double ancho) {
 
-        double calAlto = (alto * 6 * 0.4 * 6500);
-        double calAncho = (ancho * 0.4 * 6500);
-        double calVidrio = (ancho * alto * 10500);
+        double calAlto = (dividirDato(alto) * 6 * 0.4 * 6500);
+        double calAncho = (dividirDato(ancho) * 0.4 * 6500);
+        double calVidrio = (dividirDato(alto) * dividirDato(ancho) * 10500);
 
-        System.out.println("calculo alto: "+ calAlto);
-        System.out.println("calculo ancho: "+ calAncho);
-        System.out.println("calculo vidrio: "+ calVidrio);
+        //System.out.println("calculo alto: " + calAlto);
+        //System.out.println("calculo ancho: " + calAncho);
+        //System.out.println("calculo vidrio: " + calVidrio);
 
-        return calAlto + calAncho + calVidrio;
+        setPrecio(redondeo(calAlto + calAncho + calVidrio));
 
     }
 
-    public double calculoL15mayor100(double alto, double ancho) {
+    public void calculoL15mayor100(double alto, double ancho) {
 
-        System.out.println("total: " + (ancho * alto * 30000));
+        //System.out.println("total: " + (dividirDato(alto) * dividirDato(ancho) * 30000));
 
-        return (ancho * alto * 30000);
-
-
+        setPrecio(redondeo((dividirDato(alto) * dividirDato(ancho) * 30000)));
 
     }
 
@@ -60,27 +66,27 @@ public class Calculo {
 
     //L-20
 
-    public double calculoL20menor100(double alto, double ancho) {
+    public void calculoL20menor100(double alto, double ancho) {
 
-        double calAlto = (alto * 6 * 0.48 * 6500);
-        double calAncho = (ancho * 0.48 * 6500);
-        double calVidrio = (ancho * alto * 10500);
+        double calAlto = (dividirDato(alto) * 6 * 0.48 * 6500);
+        double calAncho = (dividirDato(ancho) * 0.48 * 6500);
+        double calVidrio = (dividirDato(alto) * dividirDato(ancho) * 10500);
 
-        System.out.println("calculo alto: "+ calAlto);
-        System.out.println("calculo ancho: "+ calAncho);
-        System.out.println("calculo vidrio: "+ calVidrio);
-        System.out.println("total: " + (calAlto + calAncho + calVidrio));
+        //System.out.println("calculo alto: " + calAlto);
+        //System.out.println("calculo ancho: " + calAncho);
+        //System.out.println("calculo vidrio: " + calVidrio);
+        //System.out.println("total: " + (calAlto + calAncho + calVidrio));
 
-        return calAlto + calAncho + calVidrio;
+        setPrecio(redondeo(calAlto + calAncho + calVidrio));
 
 
     }
 
-    public double calculoL20mayor100(double alto, double ancho) {
+    public void calculoL20mayor100(double alto, double ancho) {
 
-        System.out.println("total: "+ (ancho * alto * 35000));
+        //System.out.println("total: " + (dividirDato(alto) * dividirDato(ancho) * 35000));
 
-        return (ancho * alto * 35000);
+        setPrecio(redondeo(dividirDato(alto) * dividirDato(ancho) * 35000));
 
 
     }
@@ -101,27 +107,27 @@ public class Calculo {
 
     //L-25
 
-    public double calculoL25menor100(double alto, double ancho) {
+    public void calculoL25menor100(double alto, double ancho) {
 
-        double calAlto = (alto * 6 * 0.68 * 6500);
-        double calAncho = (ancho * 0.68 * 6500);
-        double calVidrio = (ancho * alto * 10500);
+        double calAlto = (dividirDato(alto) * 6 * 0.68 * 6500);
+        double calAncho = (dividirDato(ancho) * 0.68 * 6500);
+        double calVidrio = (dividirDato(alto) * dividirDato(ancho) * 10500);
 
-        System.out.println("calculo alto: "+ calAlto);
-        System.out.println("calculo ancho: "+ calAncho);
-        System.out.println("calculo vidrio: "+ calVidrio);
-        System.out.println("total: " + (calAlto + calAncho + calVidrio));
+        //System.out.println("calculo alto: " + calAlto);
+        //System.out.println("calculo ancho: " + calAncho);
+        //System.out.println("calculo vidrio: " + calVidrio);
+        //System.out.println("total: " + (calAlto + calAncho + calVidrio));
 
-        return (calAlto + calAncho + calVidrio);
+        setPrecio(redondeo(calAlto + calAncho + calVidrio));
 
 
     }
 
-    public double calculoL25mayor100(double alto, double ancho) {
+    public void calculoL25mayor100(double alto, double ancho) {
 
-        System.out.println("total : " + (ancho*alto*42000));
+        //System.out.println("total : " + (dividirDato(alto) * dividirDato(ancho) * 42000));
 
-        return (ancho * alto * 42000);
+        setPrecio(redondeo(dividirDato(alto) * dividirDato(ancho) * 42000));
 
 
     }
@@ -140,28 +146,16 @@ public class Calculo {
 
     }
 
-    public int contarDigitos(double iNumero){
 
-        int iCantidad = 0;
-        int iTemp = (int) iNumero;
+    // Get y Set Precio
 
-        while (iTemp>0){
-            iTemp = iTemp/10;
-            iCantidad++;
-        }
-
-        //System.out.println(iNumero + " tiene " + iCantidad + " dígitos");
-        return iCantidad;
-
-    }
-
-    public void setPrecio(int precio){
+    public void setPrecio(int redondeo) {
 
         this.precio = String.valueOf(precio);
 
     }
 
-    public String getPrecio(){
+    public String getPrecio() {
 
         return this.precio;
 
