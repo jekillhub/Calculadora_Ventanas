@@ -1,5 +1,6 @@
 package com.jekill.calculadora.ventanas;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,6 +10,14 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -23,7 +32,7 @@ public class MainActivity extends AppCompatActivity  {
     Button calcularJ;
     Calculo calc;
 
-    int contador;
+    int contadorBoton;
     TextView pruebaJ;
 
     @Override
@@ -43,7 +52,7 @@ public class MainActivity extends AppCompatActivity  {
 
         calc = new Calculo();
 
-        contador = 0;
+        contadorBoton = 0;
         pruebaJ = (TextView) findViewById(R.id.prueba);
         pruebaJ.setVisibility(View.GONE);
 
@@ -52,8 +61,9 @@ public class MainActivity extends AppCompatActivity  {
     public void onClick(View view){
 
         resultadoJ.setText("");
+        contadorBoton = abrirRegistro();
 
-        if (contador<6) {
+        if (contadorBoton<6) {
 
             if (altoJ.getText().toString().isEmpty() || anchoJ.getText().toString().isEmpty()) {
 
@@ -88,7 +98,8 @@ public class MainActivity extends AppCompatActivity  {
 
             }
 
-            contador = contador + 1;
+            contadorBoton = contadorBoton + 1;
+            guardarRegistro(contadorBoton);
         }
 
         else{
@@ -107,6 +118,48 @@ public class MainActivity extends AppCompatActivity  {
             pruebaJ.setVisibility(View.VISIBLE);
 
         }
+    }
+
+    public int abrirRegistro(){
+
+        int contador=0;
+
+        try {
+
+            FileInputStream fis = getApplicationContext().openFileInput("regCon.txt");
+            InputStreamReader isr = new InputStreamReader(fis,"UTF-8");
+            BufferedReader bf = new BufferedReader(isr);
+            contador = Integer.parseInt(bf.readLine());
+
+        }
+        catch(Exception e){
+            System.out.println("guardando contador cero");
+            guardarRegistro(0);
+
+        }
+
+        return contador;
+
+    }
+
+    public void guardarRegistro(int counter){
+
+        String counterText = String.valueOf(counter);
+
+        try {
+
+            FileOutputStream fileOutputStream = null;
+            fileOutputStream = openFileOutput("regCon.txt",Context.MODE_PRIVATE);
+            fileOutputStream.write(counterText.getBytes());
+            fileOutputStream.close();
+
+        }
+        catch(Exception e){
+
+            System.out.println("No se pudo guardar");
+
+        }
+
     }
 
 }
