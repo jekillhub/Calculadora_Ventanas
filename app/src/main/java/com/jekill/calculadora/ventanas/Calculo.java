@@ -36,8 +36,9 @@ public class Calculo {
         //System.out.println("calculo alto: " + calAlto);
         //System.out.println("calculo ancho: " + calAncho);
         //System.out.println("calculo vidrio: " + calVidrio);
+        double precioSR = calAlto + calAncho + calVidrio;
 
-        setPrecio(redondeo(calAlto + calAncho + calVidrio));
+        setPrecio(redondeo(precioSR));
 
     }
 
@@ -51,7 +52,7 @@ public class Calculo {
 
     public void l15Comprobacion100(double alto, double ancho) {
 
-        if (alto * ancho > 100000) {
+        if (alto * ancho >= 100000) {
 
             calculoL15mayor100(alto, ancho);
 
@@ -75,9 +76,9 @@ public class Calculo {
         //System.out.println("calculo ancho: " + calAncho);
         //System.out.println("calculo vidrio: " + calVidrio);
         //System.out.println("total: " + (calAlto + calAncho + calVidrio));
+        double precioSR = calAlto + calAncho + calVidrio;
 
-        setPrecio(redondeo(calAlto + calAncho + calVidrio));
-
+        setPrecio(redondeo(precioSR));
 
     }
 
@@ -92,7 +93,7 @@ public class Calculo {
 
     public void l20Comprobacion100(double alto, double ancho) {
 
-        if (alto * ancho > 100000) {
+        if (alto * ancho >= 100000) {
 
             calculoL20mayor100(alto, ancho);
 
@@ -116,9 +117,9 @@ public class Calculo {
         //System.out.println("calculo ancho: " + calAncho);
         //System.out.println("calculo vidrio: " + calVidrio);
         //System.out.println("total: " + (calAlto + calAncho + calVidrio));
+        double precioSR = calAlto + calAncho + calVidrio;
 
-        setPrecio(redondeo(calAlto + calAncho + calVidrio));
-
+        setPrecio(redondeo(precioSR));
 
     }
 
@@ -133,7 +134,7 @@ public class Calculo {
 
     public void l25Comprobacion100(double alto, double ancho) {
 
-        if (alto * ancho > 100000) {
+        if (alto * ancho >= 100000) {
 
             calculoL25mayor100(alto, ancho);
 
@@ -150,7 +151,7 @@ public class Calculo {
 
     public void setPrecio(int redondeo) {
 
-        this.precio = String.valueOf(precio);
+        this.precio = String.valueOf(redondeo);
 
     }
 
