@@ -52,13 +52,13 @@ public class Calculo {
 
     public void l15Comprobacion100(double alto, double ancho) {
 
-        if (alto * ancho >= 100000) {
+        if (alto * ancho < 10000) {
 
-            calculoL15mayor100(alto, ancho);
+            calculoL15menor100(alto, ancho);
 
         } else {
 
-            calculoL15menor100(alto, ancho);
+            calculoL15mayor100(alto, ancho);
 
         }
 
@@ -93,13 +93,13 @@ public class Calculo {
 
     public void l20Comprobacion100(double alto, double ancho) {
 
-        if (alto * ancho >= 100000) {
+        if (alto * ancho < 10000) {
 
-            calculoL20mayor100(alto, ancho);
+            calculoL20menor100(alto, ancho);
 
         } else {
 
-            calculoL20menor100(alto, ancho);
+            calculoL20mayor100(alto, ancho);
 
         }
 
@@ -134,13 +134,13 @@ public class Calculo {
 
     public void l25Comprobacion100(double alto, double ancho) {
 
-        if (alto * ancho >= 100000) {
+        if (alto * ancho < 10000) {
 
-            calculoL25mayor100(alto, ancho);
+            calculoL25menor100(alto, ancho);
 
         } else {
 
-            calculoL25menor100(alto, ancho);
+            calculoL25mayor100(alto, ancho);
 
         }
 
