@@ -13,10 +13,9 @@ public class Calculo {
 
     //Manejo Numerico
 
-    public int redondeo(double num) {
+    public static int redondeo(double num) {
 
-        //HACER METODO DE NUEVO.
-        return (int) Math.round(num);
+        return (int) (1000*(Math.ceil(Math.abs(num/1000))));
 
     }
 
