@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity  {
 
     public void onClick(View view){
 
+        resultadoJ.onEditorAction(EditorInfo.IME_ACTION_DONE);
         resultadoJ.setText("");
         contadorBoton = abrirRegistro();
 
@@ -148,8 +150,7 @@ public class MainActivity extends AppCompatActivity  {
 
         try {
 
-            FileOutputStream fileOutputStream = null;
-            fileOutputStream = openFileOutput("regCon.txt",Context.MODE_PRIVATE);
+            FileOutputStream fileOutputStream = openFileOutput("regCon.txt",Context.MODE_PRIVATE);
             fileOutputStream.write(counterText.getBytes());
             fileOutputStream.close();
 

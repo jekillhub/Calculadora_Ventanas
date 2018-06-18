@@ -33,9 +33,6 @@ public class Calculo {
         double calAncho = (dividirDato(ancho) * 0.4 * 6500);
         double calVidrio = (dividirDato(alto) * dividirDato(ancho) * 10500);
 
-        //System.out.println("calculo alto: " + calAlto);
-        //System.out.println("calculo ancho: " + calAncho);
-        //System.out.println("calculo vidrio: " + calVidrio);
         double precioSR = calAlto + calAncho + calVidrio;
 
         setPrecio(redondeo(precioSR));
@@ -43,8 +40,6 @@ public class Calculo {
     }
 
     public void calculoL15mayor100(double alto, double ancho) {
-
-        //System.out.println("total: " + (dividirDato(alto) * dividirDato(ancho) * 30000));
 
         setPrecio(redondeo((dividirDato(alto) * dividirDato(ancho) * 30000)));
 
@@ -72,10 +67,6 @@ public class Calculo {
         double calAncho = (dividirDato(ancho) * 0.48 * 6500);
         double calVidrio = (dividirDato(alto) * dividirDato(ancho) * 10500);
 
-        //System.out.println("calculo alto: " + calAlto);
-        //System.out.println("calculo ancho: " + calAncho);
-        //System.out.println("calculo vidrio: " + calVidrio);
-        //System.out.println("total: " + (calAlto + calAncho + calVidrio));
         double precioSR = calAlto + calAncho + calVidrio;
 
         setPrecio(redondeo(precioSR));
@@ -83,8 +74,6 @@ public class Calculo {
     }
 
     public void calculoL20mayor100(double alto, double ancho) {
-
-        //System.out.println("total: " + (dividirDato(alto) * dividirDato(ancho) * 35000));
 
         setPrecio(redondeo(dividirDato(alto) * dividirDato(ancho) * 35000));
 
@@ -113,10 +102,6 @@ public class Calculo {
         double calAncho = (dividirDato(ancho) * 0.68 * 6500);
         double calVidrio = (dividirDato(alto) * dividirDato(ancho) * 10500);
 
-        //System.out.println("calculo alto: " + calAlto);
-        //System.out.println("calculo ancho: " + calAncho);
-        //System.out.println("calculo vidrio: " + calVidrio);
-        //System.out.println("total: " + (calAlto + calAncho + calVidrio));
         double precioSR = calAlto + calAncho + calVidrio;
 
         setPrecio(redondeo(precioSR));
@@ -124,8 +109,6 @@ public class Calculo {
     }
 
     public void calculoL25mayor100(double alto, double ancho) {
-
-        //System.out.println("total : " + (dividirDato(alto) * dividirDato(ancho) * 42000));
 
         setPrecio(redondeo(dividirDato(alto) * dividirDato(ancho) * 42000));
 
@@ -145,7 +128,6 @@ public class Calculo {
         }
 
     }
-
 
     // Get y Set Precio
 
