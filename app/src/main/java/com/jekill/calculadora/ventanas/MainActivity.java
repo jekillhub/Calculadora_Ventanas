@@ -20,14 +20,14 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity {
 
     EditText altoJ;
     EditText anchoJ;
     RadioButton l15J;
     RadioButton l20J;
     RadioButton l25J;
-    RadioGroup  botonesJ;
+    RadioGroup botonesJ;
     TextView resultadoJ;
     TextView textoPrecioJ;
     Button calcularJ;
@@ -59,13 +59,13 @@ public class MainActivity extends AppCompatActivity  {
 
     }
 
-    public void onClick(View view){
+    public void onClick(View view) {
 
         resultadoJ.onEditorAction(EditorInfo.IME_ACTION_DONE);
         resultadoJ.setText("");
         contadorBoton = abrirRegistro();
 
-        if (contadorBoton<6) {
+        if (contadorBoton < 15) {
 
             if (altoJ.getText().toString().isEmpty() || anchoJ.getText().toString().isEmpty()) {
 
@@ -102,9 +102,8 @@ public class MainActivity extends AppCompatActivity  {
 
             contadorBoton = contadorBoton + 1;
             guardarRegistro(contadorBoton);
-        }
 
-        else{
+        } else {
 
             altoJ.setVisibility(View.GONE);
             anchoJ.setVisibility(View.GONE);
@@ -122,19 +121,18 @@ public class MainActivity extends AppCompatActivity  {
         }
     }
 
-    public int abrirRegistro(){
+    public int abrirRegistro() {
 
-        int contador=0;
+        int contador = 0;
 
         try {
 
             FileInputStream fis = getApplicationContext().openFileInput("regCon.txt");
-            InputStreamReader isr = new InputStreamReader(fis,"UTF-8");
+            InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
             BufferedReader bf = new BufferedReader(isr);
             contador = Integer.parseInt(bf.readLine());
 
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             System.out.println("guardando contador cero");
             guardarRegistro(0);
 
@@ -144,18 +142,17 @@ public class MainActivity extends AppCompatActivity  {
 
     }
 
-    public void guardarRegistro(int counter){
+    public void guardarRegistro(int counter) {
 
         String counterText = String.valueOf(counter);
 
         try {
 
-            FileOutputStream fileOutputStream = openFileOutput("regCon.txt",Context.MODE_PRIVATE);
+            FileOutputStream fileOutputStream = openFileOutput("regCon.txt", Context.MODE_PRIVATE);
             fileOutputStream.write(counterText.getBytes());
             fileOutputStream.close();
 
-        }
-        catch(Exception e){
+        } catch (Exception e) {
 
             System.out.println("No se pudo guardar");
 
