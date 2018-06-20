@@ -15,7 +15,7 @@ public class Calculo {
 
     public static int redondeo(double num) {
 
-        return (int) (1000*(Math.ceil(Math.abs(num/1000))));
+        return (int) (100*(Math.ceil(Math.abs(num/100))));
 
     }
 
@@ -30,7 +30,7 @@ public class Calculo {
     public void calculoL15menor100(double alto, double ancho) {
 
         double calAlto = (dividirDato(alto) * 6 * 0.4 * 6500);
-        double calAncho = (dividirDato(ancho) * 0.4 * 6500);
+        double calAncho = (dividirDato(ancho) * 4 * 0.4 * 6500);
         double calVidrio = (dividirDato(alto) * dividirDato(ancho) * 10500);
 
         double precioSR = calAlto + calAncho + calVidrio;
@@ -64,7 +64,7 @@ public class Calculo {
     public void calculoL20menor100(double alto, double ancho) {
 
         double calAlto = (dividirDato(alto) * 6 * 0.48 * 6500);
-        double calAncho = (dividirDato(ancho) * 0.48 * 6500);
+        double calAncho = (dividirDato(ancho) * 4 * 0.48 * 6500);
         double calVidrio = (dividirDato(alto) * dividirDato(ancho) * 10500);
 
         double precioSR = calAlto + calAncho + calVidrio;
@@ -99,7 +99,7 @@ public class Calculo {
     public void calculoL25menor100(double alto, double ancho) {
 
         double calAlto = (dividirDato(alto) * 6 * 0.68 * 6500);
-        double calAncho = (dividirDato(ancho) * 0.68 * 6500);
+        double calAncho = (dividirDato(ancho) * 4 * 0.68 * 6500);
         double calVidrio = (dividirDato(alto) * dividirDato(ancho) * 10500);
 
         double precioSR = calAlto + calAncho + calVidrio;
