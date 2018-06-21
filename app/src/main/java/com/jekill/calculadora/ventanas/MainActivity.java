@@ -33,9 +33,6 @@ public class MainActivity extends AppCompatActivity {
     Button calcularJ;
     Calculo calc;
 
-    int contadorBoton;
-    TextView pruebaJ;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,111 +50,45 @@ public class MainActivity extends AppCompatActivity {
 
         calc = new Calculo();
 
-        contadorBoton = 0;
-        pruebaJ = (TextView) findViewById(R.id.prueba);
-        pruebaJ.setVisibility(View.GONE);
-
     }
 
     public void onClick(View view) {
 
         resultadoJ.onEditorAction(EditorInfo.IME_ACTION_DONE);
         resultadoJ.setText("");
-        contadorBoton = abrirRegistro();
 
-        if (contadorBoton < 15) {
 
-            if (altoJ.getText().toString().isEmpty() || anchoJ.getText().toString().isEmpty()) {
+        if (altoJ.getText().toString().isEmpty() || anchoJ.getText().toString().isEmpty()) {
 
-                Toast error = Toast.makeText(getApplicationContext(), "Uno o mas campos vacíos", Toast.LENGTH_SHORT);
-                error.show();
-
-            } else {
-
-                double alto = Double.parseDouble(altoJ.getText().toString());
-                double ancho = Double.parseDouble(anchoJ.getText().toString());
-
-                if (l15J.isChecked()) {
-
-                    calc.l15Comprobacion100(alto, ancho);
-                    resultadoJ.setText(calc.getPrecio());
-
-                }
-
-                if (l20J.isChecked()) {
-
-                    calc.l20Comprobacion100(alto, ancho);
-                    resultadoJ.setText(calc.getPrecio());
-
-                }
-
-                if (l25J.isChecked()) {
-
-                    calc.l25Comprobacion100(alto, ancho);
-                    resultadoJ.setText(calc.getPrecio());
-
-                }
-
-            }
-
-            contadorBoton = contadorBoton + 1;
-            guardarRegistro(contadorBoton);
+            Toast error = Toast.makeText(getApplicationContext(), "Uno o mas campos vacíos", Toast.LENGTH_SHORT);
+            error.show();
 
         } else {
 
-            altoJ.setVisibility(View.GONE);
-            anchoJ.setVisibility(View.GONE);
-            l15J.setVisibility(View.GONE);
-            l20J.setVisibility(View.GONE);
-            l25J.setVisibility(View.GONE);
-            botonesJ.setVisibility(View.GONE);
-            resultadoJ.setVisibility(View.GONE);
-            textoPrecioJ.setVisibility(View.GONE);
-            calcularJ.setVisibility(View.GONE);
+            double alto = Double.parseDouble(altoJ.getText().toString());
+            double ancho = Double.parseDouble(anchoJ.getText().toString());
 
-            pruebaJ.setText("Licencia expirada");
-            pruebaJ.setVisibility(View.VISIBLE);
+            if (l15J.isChecked()) {
 
+                calc.l15Comprobacion100(alto, ancho);
+                resultadoJ.setText(calc.getPrecio());
+
+            }
+
+            if (l20J.isChecked()) {
+
+                calc.l20Comprobacion100(alto, ancho);
+                resultadoJ.setText(calc.getPrecio());
+
+            }
+
+            if (l25J.isChecked()) {
+
+                calc.l25Comprobacion100(alto, ancho);
+                resultadoJ.setText(calc.getPrecio());
+
+            }
         }
     }
-
-    public int abrirRegistro() {
-
-        int contador = 0;
-
-        try {
-
-            FileInputStream fis = getApplicationContext().openFileInput("regCon.txt");
-            InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
-            BufferedReader bf = new BufferedReader(isr);
-            contador = Integer.parseInt(bf.readLine());
-
-        } catch (Exception e) {
-            System.out.println("guardando contador cero");
-            guardarRegistro(0);
-
-        }
-
-        return contador;
-
-    }
-
-    public void guardarRegistro(int counter) {
-
-        String counterText = String.valueOf(counter);
-
-        try {
-
-            FileOutputStream fileOutputStream = openFileOutput("regCon.txt", Context.MODE_PRIVATE);
-            fileOutputStream.write(counterText.getBytes());
-            fileOutputStream.close();
-
-        } catch (Exception e) {
-
-            System.out.println("No se pudo guardar");
-
-        }
-
-    }
-
 }
+

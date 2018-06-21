@@ -7,5 +7,4 @@
     <string name="alto">Ingrese alto en cm</string>
     <string name="textoPrecio">Precio:</string>
     <string name="calcular">CALCULAR</string>
-    <string name="version">DEMO by Jorge Echeverría R.</string>
 </resources>
